@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DBProject.DAL;
 using System.Data;
-
+using System.Globalization;
 
 namespace DBProject
 {
@@ -88,7 +88,6 @@ namespace DBProject
             string Addr = Address.Text;
 
             string gender = Request.Form["Gender"].ToString();
-           
 
 
             myDAL objmyDAl = new myDAL();

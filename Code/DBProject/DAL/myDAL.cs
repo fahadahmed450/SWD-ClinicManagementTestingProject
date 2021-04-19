@@ -6,8 +6,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 
- 
 namespace DBProject.DAL
 {
 	//Database Layer of 3 tier architecture
@@ -107,20 +107,23 @@ namespace DBProject.DAL
                   @ID int output
                   */
 
+                DateTime dt = DateTime.ParseExact(BirthDate + " 00:00:00",
+                       "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+
 
                 SqlCommand cmd1 = new SqlCommand("PatientSignup", con);              
                 cmd1.CommandType = CommandType.StoredProcedure;
 
-				cmd1.Parameters.Add("@name", SqlDbType.VarChar, 20).Value = Name;
-				cmd1.Parameters.Add("@address", SqlDbType.VarChar, 40).Value = Address;
-				cmd1.Parameters.Add("@gender", SqlDbType.VarChar, 1).Value = gender;
-				cmd1.Parameters.Add("@date", SqlDbType.Date).Value = BirthDate;
-				cmd1.Parameters.Add("@email", SqlDbType.VarChar, 30).Value = Email;
-				cmd1.Parameters.Add("@password", SqlDbType.VarChar, 20).Value = Password;
-				cmd1.Parameters.Add("@phone", SqlDbType.Char, 15).Value = PhoneNo;
+				cmd1.Parameters.AddWithValue("@name", Name);
+				cmd1.Parameters.AddWithValue("@address", Address);
+				cmd1.Parameters.AddWithValue("@gender", gender);
+				cmd1.Parameters.AddWithValue("@date", dt);
+				cmd1.Parameters.AddWithValue("@email",Email);
+				cmd1.Parameters.AddWithValue("@password", Password);
+				cmd1.Parameters.AddWithValue("@phone", PhoneNo);
 				
-                cmd1.Parameters.Add("@status", SqlDbType.Int).Direction = ParameterDirection.Output;
-                cmd1.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd1.Parameters.AddWithValue("@status",ParameterDirection.Output);
+                cmd1.Parameters.AddWithValue("@ID", ParameterDirection.Output);
 				
                 cmd1.ExecuteNonQuery();           
 
