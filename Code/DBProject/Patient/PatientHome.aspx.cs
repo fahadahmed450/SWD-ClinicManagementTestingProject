@@ -13,7 +13,11 @@ namespace DBProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            patientInfo(sender,e);
+            if (Session["idoriginal"] != null && Session["idoriginal"] != "")
+            {
+                patientInfo(sender, e);
+            } 
+           
         }
 
         

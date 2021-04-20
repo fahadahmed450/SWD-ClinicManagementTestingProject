@@ -16,7 +16,10 @@ namespace DBProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Notifications(sender, e);
+            if (Session["idoriginal"] != null && Session["idoriginal"] != "")
+            {
+                Notifications(sender, e);
+            }
         }
 
 

@@ -85,7 +85,7 @@ namespace DBProject.DAL
 
 
 		/*THIS FUNCTION WILL VALIDATE ALL THE INFORMAIION OF OF USER (PATIENT)*/
-        public int validateUser (string Name, string BirthDate, string Email , string Password , string PhoneNo , string gender , string Address, ref int id)
+        public int validateUser (string Name, DateTime BirthDate, string Email , string Password , string PhoneNo , string gender , string Address, ref int id)
         {
 
             SqlConnection con = new SqlConnection(connString);
@@ -107,9 +107,6 @@ namespace DBProject.DAL
                   @ID int output
                   */
 
-                DateTime dt = DateTime.ParseExact(BirthDate + " 00:00:00",
-                       "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-
 
                 SqlCommand cmd1 = new SqlCommand("PatientSignup", con);              
                 cmd1.CommandType = CommandType.StoredProcedure;
@@ -117,7 +114,7 @@ namespace DBProject.DAL
 				cmd1.Parameters.AddWithValue("@name", Name);
 				cmd1.Parameters.AddWithValue("@address", Address);
 				cmd1.Parameters.AddWithValue("@gender", gender);
-				cmd1.Parameters.AddWithValue("@date", dt);
+				cmd1.Parameters.AddWithValue("@date", BirthDate);
 				cmd1.Parameters.AddWithValue("@email",Email);
 				cmd1.Parameters.AddWithValue("@password", Password);
 				cmd1.Parameters.AddWithValue("@phone", PhoneNo);
@@ -726,7 +723,7 @@ namespace DBProject.DAL
 				/*PUTTING OUTPUTS*/
 				cmd1.Parameters.Add("@name", SqlDbType.VarChar, 20).Direction = ParameterDirection.Output;
 				cmd1.Parameters.Add("@phone", SqlDbType.Char, 15).Direction = ParameterDirection.Output;
-				cmd1.Parameters.Add("@birthDate", SqlDbType.VarChar, 10).Direction = ParameterDirection.Output;
+				cmd1.Parameters.Add("@birthDate", SqlDbType.VarChar, 12).Direction = ParameterDirection.Output;
 				cmd1.Parameters.Add("@address", SqlDbType.VarChar, 40).Direction = ParameterDirection.Output;
 				cmd1.Parameters.Add("@age", SqlDbType.Int).Direction = ParameterDirection.Output;
 				cmd1.Parameters.Add("@gender", SqlDbType.Char, 1).Direction = ParameterDirection.Output;

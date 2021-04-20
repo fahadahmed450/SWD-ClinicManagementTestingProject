@@ -14,7 +14,10 @@ namespace DBProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            appointmentToday(sender, e);
+            if (Session["idoriginal"] != null && Session["idoriginal"] != "")
+            {
+                appointmentToday(sender, e);
+            }
         }
 
 

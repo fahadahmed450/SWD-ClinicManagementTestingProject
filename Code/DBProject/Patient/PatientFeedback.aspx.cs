@@ -19,7 +19,12 @@ namespace DBProject
 			if (!IsPostBack)
 			{
 				Session["aID"] = "";
-				pendingFeedback(sender, e);
+
+                if (Session["idoriginal"] != null && Session["idoriginal"] != "")
+                {
+                    pendingFeedback(sender, e);
+                }
+                
 			}
         }
 

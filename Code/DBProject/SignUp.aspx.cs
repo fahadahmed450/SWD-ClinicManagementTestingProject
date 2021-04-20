@@ -94,7 +94,9 @@ namespace DBProject
 
             int id = 0;
 
-            int status = objmyDAl.validateUser(Name, BirthDate, Email, Password, PhoneNo, gender, Addr, ref id);
+            DateTime dt = DateTime.ParseExact(BirthDate + " 00:00:00",
+                       "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            int status = objmyDAl.validateUser(Name, dt, Email, Password, PhoneNo, gender, Addr, ref id);
 
 
             //status == 0 failure

@@ -15,7 +15,11 @@ namespace DBProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            treatmentHistory(sender, e);
+            
+            if (Session["idoriginal"] != null && Session["idoriginal"] != "")
+            {
+                treatmentHistory(sender, e);
+            }
         }
 
 
@@ -26,7 +30,6 @@ namespace DBProject
             myDAL objmyDAl = new myDAL();
 
             DataTable DT = new DataTable();
-
 
             int id = (int)Session["idoriginal"];
 

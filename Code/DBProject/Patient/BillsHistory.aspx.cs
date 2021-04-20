@@ -14,7 +14,10 @@ namespace DBProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            billHistory(sender, e);
+            if (Session["idoriginal"] != null && Session["idoriginal"] != "")
+            {
+                billHistory(sender, e);
+            }
         }
 
 
