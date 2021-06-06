@@ -118,4 +118,18 @@ If you face any issue, you can create a new issue in the Issues Tab and I will b
 ## License
 [![MIT](https://img.shields.io/cocoapods/l/AFNetworking.svg?style=style&label=License&maxAge=2592000)](../master/LICENSE)
 
-Copyright (c) 2018-present, harismuneer 
+## Testing
+
+A security test is a method of evaluating the security of a computer system or network by methodically validating and verifying the effectiveness of application security controls. A web application security test focuses only on evaluating the security of a web application. 
+In computer security, authentication is the process of attempting to verify the digital identity of the sender of a communication. A common example of such a process is the log on process. Testing the authentication schema means understanding how the authentication process works and using that information to circumvent the authentication mechanism.
+
+![Screenshot (56)](https://user-images.githubusercontent.com/38424362/120944151-42a06700-c733-11eb-836c-472a7e0ce110.png)
+![Screenshot (57)](https://user-images.githubusercontent.com/38424362/120944152-4338fd80-c733-11eb-937a-844c12aef5a5.png)
+![Screenshot (59)](https://user-images.githubusercontent.com/38424362/120944153-43d19400-c733-11eb-875f-06fab8781e97.png)
+![Screenshot (60)](https://user-images.githubusercontent.com/38424362/120944154-43d19400-c733-11eb-8083-aefac0e15ddb.png)
+![Screenshot (61)](https://user-images.githubusercontent.com/38424362/120944156-446a2a80-c733-11eb-9e32-ecf47f1aea1e.png)
+
+
+
+
+Copyright (c) 2021-present, HamzaKhan, FahadAhmed, AreebullahKhan 
